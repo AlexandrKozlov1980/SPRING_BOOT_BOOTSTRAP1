@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+  <title>User page</title>
+  <style>
+    select {width: 200px;}
+    a { text-decoration: none; }
+    label {color: black; font-size: medium}
+  </style>
+</head>
+<body>
+
+<div class="container-fluid" style="background: rgba(6,16,20,0.85); color: white">
+  <div class="row">
+    <div class="col-11" style="font-size: larger">
+      <tr th:each="user : ${user}">
+        <b><td th:text="${user.getEMail()}"></td></b>
+        with roles:
+        <td th:text="${user.getRole()}"></td>
+      </tr>
+    </div>
+    <div class="col-1">
+      <a href="/logout" style="color: darkgray">Logout</a>
+    </div>
+  </div>
+
+  <div class="row" style="background-color: white">
+    <div class="col-2" style="padding: 20px">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
+      </div>
+    </div>
+
+    <div class="col-10 bg-light vh-100" style="background-color: #f5f5f5; padding: 20px 30px">
+      <h2 style="color: black">User information-page </h2>
+      <div class="card">
+        <div class="card-header">
+          <h6 style="color: black">About user</h6>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="usr : ${user}">
+                <td th:utext="${usr.getId()}"></td>
+                <td th:utext="${usr.getName()}"></td>
+                <td th:utext="${usr.getLastName()}"></td>
+                <td th:utext="${usr.getAge()}"></td>
+                <td th:utext="${usr.getEMail()}"></td>
+                <td th:utext="${usr.getRole()}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+
+<!--  <div class="container">-->
+
+<!--  </div>-->
+
+
+<!--  <table border="1">-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>First Name</th>-->
+<!--      <th>Last Name</th>-->
+<!--      <th>Age</th>-->
+<!--      <th>Email</th>-->
+<!--      <th>Password</th>-->
+<!--      <th>Role</th>-->
+<!--    </tr>-->
+
+<!--    <tr th:each="usr : ${user}">-->
+<!--      <td th:utext="${usr.getId()}"></td>-->
+<!--      <td th:utext="${usr.getName()}"></td>-->
+<!--      <td th:utext="${usr.getLastName()}"></td>-->
+<!--      <td th:utext="${usr.getAge()}"></td>-->
+<!--      <td th:utext="${usr.getEMail()}"></td>-->
+<!--      <td th:utext="${usr.getPassword()}"></td>-->
+<!--      <td th:utext="${usr.getRole()}"></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+  <br>
+<!--  <form method="GET" action="/logout">-->
+<!--    <input type="submit" value="LOGOUT">-->
+<!--  </form>-->
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</body>
+</html>
